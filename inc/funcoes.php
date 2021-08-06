@@ -117,9 +117,9 @@ class funcoes
             'BD_DATABASE'     => 'servicos',
             'BD_CHARSET'      => 'utf8',
             'BD_USERNAME'     => 'root',
-            'BD_PASSWORD'     => 'root',
+            'BD_PASSWORD'     => '',
 
-            //variáveis do email
+            //variáveis do email do admin
             'MAIL_HOST'       => 'smtp.gmail.com',
             'MAIL_PORT'       => 587,
             'MAIL_USERNAME'   => 'seu email',
