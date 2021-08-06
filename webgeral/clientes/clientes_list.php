@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $gestor = new cl_gestorBD();
 $clientes = null;
 $tot_itens = null;
-$itens_pag = 6;
+$itens_pag = 5;
 $param = [];
 $sql = '';
 $campo_busca = '';
@@ -75,7 +75,8 @@ $tot_itens = count($gestor->EXE_QUERY($sql_tot, $param));
                     <div class="col-md-4 align-self-center">
                         <form action="?a=clientes-list" method="post">
                             <div class="form-inline">
-                                <input class="form-control ml-3 p-1" type="text" name="txt-busca" placeholder="Pesquisa" value="<?php echo $campo_busca ?>">
+                                <input class="form-control ml-3 p-1" type="text" name="txt-busca" 
+                                placeholder="Pesquisa" value="<?= $campo_busca ?>">
                                 <button class="p-1 btn btn-primary ml-2">
                                     <i class="fa fa-search"></i>
                                 </button>
@@ -86,7 +87,8 @@ $tot_itens = count($gestor->EXE_QUERY($sql_tot, $param));
                         </form>
                     </div>
                     <div class="col-md-4 text-right align-self-center">
-                        <a class="p-1 btn btn-primary btn-size-150 mr-2" href="?a=clientes-add">Novo Cliente</a>
+                        <a class="p-1 btn btn-primary btn-size-150 mr-2" 
+                        href="?a=clientes-add">Novo Cliente</a>
                         <a class="p-1 btn btn-secondary btn-size-150" href="?a=home">Voltar</a>
                     </div>
 
@@ -104,16 +106,16 @@ $tot_itens = count($gestor->EXE_QUERY($sql_tot, $param));
                     <tbody>
                         <?php foreach ($clientes as $cli) : ?>
                             <tr>
-                                <td><?php echo $cli['nome'] ?></td>
-                                <td><a href="mailto:<?php echo $cli['email'] ?>">
-                                        <?php echo $cli['email'] ?></a></td>
-                                <td><?php echo $cli['telefone'] ?></td>
+                                <td><?= $cli['nome'] ?></td>
+                                <td><a href="mailto:<?= $cli['email'] ?>">
+                                        <?= $cli['email'] ?></a></td>
+                                <td><?= $cli['telefone'] ?></td>
                                 <td class="text-center">
-                                    <a href="?a=servicos-list&i=<?php echo $cli['id_cliente'] ?>&n=<?php echo $cli['nome'] ?>">
+                                    <a href="?a=servicos-list&i=<?= $cli['id_cliente'] ?>">
                                         <i class="text-success fa fa-wrench"></i></a>
-                                    <a href="?a=clientes-upd&i=<?php echo $cli['id_cliente'] ?>">
+                                    <a href="?a=clientes-upd&i=<?= $cli['id_cliente'] ?>">
                                         <i class="text-primary ml-1 fa fa-edit"></i></a>
-                                    <a href="?a=clientes-del&i=<?php echo $cli['id_cliente'] ?>">
+                                    <a href="?a=clientes-del&i=<?= $cli['id_cliente'] ?>">
                                         <i class="text-danger ml-1 fa fa-trash"></i></a>
                                 </td>
 

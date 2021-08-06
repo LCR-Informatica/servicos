@@ -21,7 +21,6 @@ if(isset($_GET['i'])){
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $id_cli = $cliente_atual;
     $descr  = $_POST['txt-descr'];
     $tipo   = $_POST['txt-tipo'];
     $valor  = $_POST['txt-valor'];
@@ -34,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!$erro) {
 
         $param  = [
-            ':id_cli' => $id_cli,
+            ':id_cli' => $cliente_atual,
             ':descr'  => $descr,
             ':tipo'   => $tipo,
             ':valor'  => $valor,
@@ -42,13 +41,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         ];
         $sql  = "INSERT INTO servicos(id_cliente, descricao, orcamento, valor, quantidade, created_at) 
             VALUES(:id_cli, :descr, :tipo, :valor, :qtde, current_timestamp())";
-        $temp = $gestor->EXE_NON_QUERY($sql, $param);
+        $gestor->EXE_NON_QUERY($sql, $param);
 
         $sucesso = true;
         $msg = 'Dados gravados om sucesso.';
 
         // LOG
-        funcoes::CriaLOG($_SESSION['nome_usuario'], ' cadastrou servico para cliente ' . $id_cli . 'no BD');
+        funcoes::CriaLOG($_SESSION['nome_usuario'], ' cadastrou servico para cliente ' . $cliente_atual .
+         ' no BD');
     }
 }
 
@@ -56,16 +56,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <?php if ($erro) : ?>
     <div class='m-3 pt-3 pb-2 alert alert-danger text-center'>
-        <h5><?php echo $msg ?></h5>
+        <h5><?= $msg ?></h5>
     </div>
     <div class="m-3 p-2 text-center">
-        <a href="?a=servicos-list&i=<?php echo $cliente_atual?>" 
+        <a href="?a=servicos-list&i=<?= $cliente_atual?>" 
          class='btn btn-secondary btn-size-150'>Voltar</a>
     </div>
 <?php else : ?>
     <?php if ($sucesso) : ?>
         <div class='m-3 pt-3 pb-2 alert alert-success text-center'>
-            <h5><?php echo $msg ?></h5>
+            <h5><?= $msg ?></h5>
         </div>
     <?php endif; ?>
     <div class="container-fluid perfil">
@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="row justify-content-center">
             <div class="col-md-8 card m-3 pb-3">
                 <h4 class='text-center pt-4 pb-2'>Incluir Novo Serviço/Orçamento</h4>
-                <form action="?a=servicos-add&i=<?php echo $cliente_atual?>" method="post">
+                <form action="?a=servicos-add&i=<?= $cliente_atual?>" method="post">
                     <div class="col-md-8 offset-md-1 mt-1 pb-1">
                         <div class='row ml-2 form-group'>
                             <label class="col-sm-4 col-form-label">
@@ -111,7 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <div class="text-center pb-1 pt-2">
                         <button type="submit" class="btn btn-primary btn-size-150">Incluir</button>
                         <a class="btn btn-secondary btn-size-150 ml-5" 
-                         href="?a=servicos-list&i=<?php echo $cliente_atual ?>">Voltar</a>
+                         href="?a=servicos-list&i=<?= $cliente_atual ?>">Voltar</a>
                     </div>
                 </form>
             </div>

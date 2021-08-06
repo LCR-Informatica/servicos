@@ -43,7 +43,8 @@ if ($permitido) {
     $nome   = $user[0]['nome'];
     $email  = $user[0]['email'];
 
-    if (substr($user[0]['permissoes'], 0, 1) == 1 && $_SESSION['id_usuario'] != 1) { // outro admin deletando admin
+    if (substr($user[0]['permissoes'], 0, 1) == 1 && $_SESSION['id_usuario'] != 1) {
+        // outro admin deletando admin
         $permitido = false;
     }
 }
@@ -57,43 +58,41 @@ if ($permitido) {
             $msg = 'Usuário excluido com sucesso!';
 
             // LOG
-            funcoes::CriaLOG($_SESSION['nome'], 'excluiu usuario '.$nome.'no BD');
+            funcoes::CriaLOG($_SESSION['nome'], 'excluiu usuario ' . $nome . ' no BD');
         }
     }
 }
-
 ?>
 
 <?php if ($permitido) : ?>
-
     <?php if ($sucesso) : ?>
-
         <div class='m-3 pt-3 pb-2 alert alert-success text-center'>
-            <h5><?php echo $msg ?></h5>
+            <h5><?= $msg ?></h5>
         </div>
-
     <?php endif; ?>
-
-    <div class="container card col-md-6 offset-md-3 mt-3 mb-3">
-        <h4 class="text-center mt-3">Exclusão de Usuário</h4>
-        <hr>
-        <div class="row pt-2">
-            <div class="col-md-6">
-            <h5><strong>Usuário: </strong><?php echo $nome ?></h5>
+    <div class="container-fluid perfil">
+        <div class="container col-md-6 offset-md-3 pt-2 pb-2">
+            <div class="card mt-1 mb-1">
+                <h4 class="text-center mt-3">Exclusão de Usuário</h4>
+                <hr>
+                <div class="row mb-2">
+                    <div class="col-md-6 ml-5">
+                        <h5><strong>Usuário: </strong><?= $nome ?></h5>
+                    </div>
+                    <div class="col-md-5">
+                        <h5><strong>Email: </strong><?= $email ?></h5>
+                    </div>
+                </div>
+                <hr>
+                <div class="text-center mt-1 mb-3">
+                    <a class="btn btn-secondary btn-size-150 mr-5" 
+                    href="?a=usuarios-gerir">Voltar</a>
+                    <a class="btn btn-primary btn-size-150" 
+                    href="?a=usuarios-del&id=<?= $user[0]['id_usuario'] ?>&r=1">Excluir</a>
+                </div>
             </div>
-            <div class="col-md-6">
-            <h5><strong>Email: </strong><?php echo $email ?></h5>
-            </div>
-        </div>
-        <hr>
-        <div class="text-center mt-1 mb-3">
-            <a class="btn btn-secondary btn-size-150 mr-5" href="?a=usuarios-gerir">Voltar</a>
-            <a class="btn btn-primary btn-size-150" href="?a=usuarios-del&id=<?php echo $user[0]['id_usuario'] ?>&r=1">Excluir</a>
         </div>
     </div>
-
 <?php else : ?>
-
-    <?php include_once('../inc/sem_permissao.php') ?>
-
+    <?php include_once('../../inc/sem_permissao.phpp') ?>
 <?php endif; ?>

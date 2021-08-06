@@ -17,11 +17,11 @@ if (isset($_GET['a'])) {
 switch($a){
     // pagina inicial  
     case 'home':                    
-        include_once('./webgeral/index.php');   
+        include_once('./webgeral/inicio.php');   
     break;
     
     case 'inicio':                    
-        include_once('./webgeral/index.php');   
+        include_once('./webgeral/inicio.php');   
     break;
 
     // login
@@ -81,5 +81,23 @@ switch($a){
     break;
     case 'servicos-upd':                 
         include_once('./webgeral/servicos/servicos_upd.php'); 
+    break;
+
+    // ***************************************
+    // area de administração
+    case 'usuarios-gerir':         
+        include_once('./webgeral/admin/usuarios_gerir.php');
+    break;
+    case 'usuarios-add':           
+        include_once('./webgeral/admin/usuarios_add.php');
+    break;
+    case 'usuarios-upd':           
+        include_once('./webgeral/admin/usuarios_upd.php');
+    break;
+    case 'usuarios-del':           
+        include_once('./webgeral/admin/usuarios_del.php');
+    break;
+    case 'permissoes-upd':         
+        include_once('./webgeral/admin/permissoes_upd.php');
     break;
 }

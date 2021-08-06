@@ -16,7 +16,7 @@ $retorno = explode('a=', $_SERVER['HTTP_REFERER'])[1];
             <div class="text-center">
                 <h1><i class='fa fa-exclamation-triangle text-warning'></i></h1>
                 <h4>Usuário não tem permissão de acesso!</h4>
-                <a href='?a=<?php echo $retorno ?>' class='mt-2 btn btn-warning btn-size-150'>Voltar</a>
+                <a href='?a=<?= $retorno ?>' class='mt-2 btn btn-warning btn-size-150'>Voltar</a>
             </div>
         </div>
     </div>

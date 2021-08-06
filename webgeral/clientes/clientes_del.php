@@ -46,6 +46,9 @@ if ($id > 0) {
         $gestor->EXE_NON_QUERY($sql, $param);
         $msg  = "Cliente e serviços excluídos com sucesso!";
         $sucesso = true;
+        // LOG
+        funcoes::CriaLOG($_SESSION['nome_usuario'], ' excluiu o cliente ' . $id . 
+        ' e seus serviços do BD');
     }
 } else {
     $msg  = "Cliente não encontrado!";
@@ -77,7 +80,8 @@ if ($id > 0) {
                 <h5>Telefone: <?php echo $cliente['telefone'] ?></h5>
                 <h5>Endereço: <?php echo $cliente['endereco'] ?></h5>
                 <br>
-                <h3 class="text-center text-danger">ATENÇÃO! TODOS os lançamentos para este cliente serão EXCLUÍDOS!</h3>
+                <h3 class="text-center text-danger">
+                    ATENÇÃO! TODOS os lançamentos para este cliente serão EXCLUÍDOS!</h3>
                 <br>
                 <div class="text-center mt-2">
                     <a class="mr-5 btn btn-primary btn-size-150" 

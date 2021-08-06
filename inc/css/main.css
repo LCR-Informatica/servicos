@@ -1,0 +1,91 @@
+/* importação de arquivos css */
+
+/* @import url('_cabecalho.css'); */
+.cabecalho-web{
+    background-image: url("../images/fundo.jpeg");
+    height: 120px;
+}
+
+.logo{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+
+/* @import url('_barra_cliente.css'); */
+.barra-cliente{
+    background: linear-gradient(black, rgb(100,100,100));
+    text-align: right;
+    color: white;
+    padding: 5px;
+}
+
+.barra-cliente a {
+    text-decoration: none;
+    color: rgb(235,165,15);
+}
+
+.barra-cliente a:hover{
+    color: white;
+}
+
+.dropdown-menu a{
+    text-decoration: none;
+}
+
+.dropdown-menu a:hover{
+    background-color: rgb(50,60,60);
+    color: white;
+}
+
+/* @import url('_index.css'); */
+.index-container{
+    background: linear-gradient(rgb(104, 104, 116), rgb(181, 218, 233));
+    color: black;
+    padding: 10px;
+    height: 450px;
+}
+
+.body-container{
+    /* background-image: url("../images/fundo.jpeg"); */
+    background-color: rgb(32, 32, 32);
+    color: white;
+}
+
+a{
+    color: rgb(0, 63, 180);
+}
+
+a:hover{
+    color: royalblue;
+    text-decoration: none;
+}
+
+/* @import url('_rodape.css'); */
+.rodape {
+    margin-top: 30px;
+    color: white;
+    font-size: 1em;
+}
+
+.rodape-social{
+    font-size: 2em;
+}
+
+/* @import url('_perfil.css'); */
+.perfil{
+    background: linear-gradient(rgb(104, 104, 116), rgb(181, 218, 233));
+    color: black;
+    height: 450px;
+}
+
+.perfil .btn-link{
+    text-decoration: none;
+    color: black;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.perfil .btn-link:hover{
+    color:black;
+}

@@ -11,24 +11,6 @@ if (isset($_GET['a'])) {
     $a = $_GET['a'];
 }
 
-// roteador do setup
-switch ($a) {
-    case 'setup-criar-bd':
-        // executa procedimentos de criação do BD
-        include_once('setup/criar_bd.php');
-        break;
-
-    case 'setup-inserir-usuarios':
-        // inserir usuarios na tabela
-        include_once('setup/inserir_usuarios.php');
-        break;
-
-    case 'setup-inserir-clientes':
-        // inserir clientes na tabela
-        include_once('setup/inserir_clientes.php');
-        break;
-}
-
 ?>
 
 <div class="container-fluid pd-20">

@@ -80,7 +80,7 @@ class funcoes
     public static function Paginacao($source, $pag_atual, $itens_pag, $tot_itens)
     {
         // gerencia o funcionamento da paginação
-        $max_pag = ceil($tot_itens/$itens_pag);
+        $max_pag = ceil($tot_itens / $itens_pag);
         echo '<div class="row">';
             echo '<div class="col-sm-6 mb-1">';
                 echo 'Página: '.$pag_atual.' ';
@@ -90,7 +90,7 @@ class funcoes
                     echo '<a class="p-0 btn btn-primary" href="'.$source.'&p='.($pag_atual-1).'"><<</a>';
                 }
                 echo ' | ';
-                if($pag_atual==$max_pag){ // pag seguinte
+                if($pag_atual == $max_pag){ // pag seguinte
                     echo '<a class="p-0 btn btn-secondary">>></a>';
                 } else {
                     echo '<a class="p-0 btn btn-primary" href="'.$source.'&p='.($pag_atual+1).'">>></a>';
@@ -122,15 +122,37 @@ class funcoes
             //variáveis do email
             'MAIL_HOST'       => 'smtp.gmail.com',
             'MAIL_PORT'       => 587,
-            'MAIL_USERNAME'   => 'cameraeuterpe@gmail.com',
-            'MAIL_PASSWORD'   => 'Pu1ylc&*(', // em 09/07/2020
-            'MAIL_FROM'       => 'cameraeuterpe@gmail.com',
+            'MAIL_USERNAME'   => 'seu email',
+            'MAIL_PASSWORD'   => 'sua senha',
+            'MAIL_FROM'       => 'seu email',
             'MAIL_DEBUG'      => 0,
 
             //endereço base
-            'BASE_URL'        => 'http://localhost/www/servicos/'
+            'BASE_URL'        => 'http://localhost/servicos/'
         );
 
         return $ret;
+    }
+
+    public static function Permissoes()
+    {
+        return( [
+
+            [ 'permissao' => 'Administrador', // posição 0
+              'sumario'   => 'Administrador do sistema.' ],
+        
+            [ 'permissao' => 'Gerenciar usuários', // posição 1
+              'sumario'   => 'Usuário pode incluir, editar e remover dados de outros usuários.' ],
+        
+            [ 'permissao' => 'Alterar senha/email de usuário', // posição 2
+              'sumario'   => 'Usuário pode alterar própria senha e/ou email.' ],
+        
+            [ 'permissao' => 'Visualizar dados de clientes', // posição 3
+              'sumario'   => 'Usuário pode visualizar dados de clientes.' ],
+        
+            [ 'permissao' => 'Alterar dados de clientes', // posição 4
+              'sumario'   => 'Usuário pode alterar dados de clientes.' ]
+              
+        ] );
     }
 }

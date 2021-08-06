@@ -5,21 +5,10 @@ use PHPMailer\PHPMailer\Exception;
     class cl_Email{
         
         // =========================================================
-        public function EnviarEmailCliente($dados){
-            require 'phpmailer/src/Exception.php';
-            require 'phpmailer/src/PHPMailer.php';
-            require 'phpmailer/src/SMTP.php';
-            cl_Email::EnviarEmail($dados);
-        }
-
-        public function EnviarEmailAdmin($dados){
+        public static function EnviarEmail($dados){
             require '../phpmailer/src/Exception.php';
             require '../phpmailer/src/PHPMailer.php';
             require '../phpmailer/src/SMTP.php';
-            cl_Email::EnviarEmail($dados);
-        }
-
-        public static function EnviarEmail($dados){
             // dados[0] = endereço de email do destinatário
             // dados[1] = assunto
             // dados[2] = mensagem
@@ -41,8 +30,7 @@ use PHPMailer\PHPMailer\Exception;
             $mail->Host = $configs['MAIL_HOST'];
             $mail->Port = $configs['MAIL_PORT'];
             $mail->SMTPAuth = true;
-            $mail->Username = $configs['MAIL_USERNAME'];                        
-            //$mail->Username = 'fsdfdsf';                        
+            $mail->Username = $configs['MAIL_USERNAME'];                                                
             $mail->Password = $configs['MAIL_PASSWORD'];
             $mail->setFrom ($configs['MAIL_FROM'], 'SERVICOS');
             $mail->addAddress($dados[0], $dados[0]);

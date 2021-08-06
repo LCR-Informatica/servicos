@@ -1,5 +1,6 @@
 // main.js
 
+// gerador de senha aleatório
 function gerarSenha(numChars){
     let codigo = '';
     let txt_senha = document.getElementById('txt_senha');

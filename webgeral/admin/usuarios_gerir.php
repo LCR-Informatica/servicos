@@ -16,19 +16,17 @@ $msg = '';
 ?>
 
 <?php if (!$permissao) : // se nao tem permissao ?>
-
-    <?php include_once('../inc/sem_permissao.php') ?>
-
+    <?php include_once('../../inc/sem_permissao.php') ?>
 <?php else : // se tem permissao ?>
-
-    <div class="container">
+    <div class="container-fluid perfil">
         <div class="row justify-content-center">
             <div class="col-sm-10 offset-sm-1 card m-3 pt-2 pb-2">
-                <h4 class='text-center mt-3 mb-1'>Gerenciar Usuários Clientes</h4>
+                <h4 class='text-center mt-3 mb-1'>Gerenciar Usuários do Sistema</h4>
                 <hr>
                 <div class="text-center pb-1">
                     <a class="btn btn-secondary btn-size-150" href="?a=inicio">Voltar</a>
-                    <a class='ml-5 btn btn-primary btn-size-150' href="?a=usuarios-add">Novo Usuário...</a>
+                    <a class='ml-5 btn btn-primary btn-size-150' href="?a=usuarios-add">
+                        Novo Usuário</a>
                 </div>
                 <div class="row pt-2 pb-2">
                     <table class="table table-striped">
@@ -49,14 +47,15 @@ $msg = '';
                             ?>
                             <?php foreach ($dados as $du) : ?>
                                 <tr>
-                                    <td><?php if (substr($du['permissoes'], 0, 1) == 1) : // testa se é admin?>
+                                    <td><?php if (substr($du['permissoes'], 0, 1) == 1) :
+                                         // testa se é admin?>
                                             <i class="fa fa-user"></i>
                                         <?php else : ?>
                                             <i class="fa fa-user-o"></i>
                                         <?php endif; ?></td>
-                                    <td><?php echo $du['usuario']; ?></td>
-                                    <td><?php echo $du['nome']; ?></td>
-                                    <td><?php echo $du['email']; ?></td>
+                                    <td><?= $du['usuario']; ?></td>
+                                    <td><?= $du['nome']; ?></td>
+                                    <td><?= $du['email']; ?></td>
                                     <td><?php
                                         $id = $du['id_usuario'];
                                         $drop = true;
@@ -76,14 +75,19 @@ $msg = '';
                                         }?>
                                         <?php if ($drop) : ?>
                                             <div class="dropdown text-right">
-                                                <button class="<?php echo $btn ?> fa fa-cog" type="button" id="d2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <button class="<?= $btn ?> fa fa-cog" type="button" 
+                                                id="d2" data-toggle="dropdown" aria-haspopup="true" 
+                                                aria-expanded="false">
                                                 </button>
                                                 <div class="dropdown-menu" aria-labelledby="d2">
-                                                    <a class="dropdown-item" href="?a=usuarios-upd&id=<?php echo $id ?>">
+                                                    <a class="dropdown-item" 
+                                                    href="?a=usuarios-upd&id=<?= $id ?>">
                                                     <i class="fa fa-edit"></i> Editar usuário</a>
-                                                    <a class="dropdown-item" href="?a=permissoes-upd&id=<?php echo $id ?>">
+                                                    <a class="dropdown-item" 
+                                                    href="?a=permissoes-upd&id=<?= $id ?>">
                                                     <i class="fa fa-list"></i> Editar permissões</a>
-                                                    <a class="dropdown-item" href="?a=usuarios-del&id=<?php echo $id ?>">
+                                                    <a class="dropdown-item" 
+                                                    href="?a=usuarios-del&id=<?= $id ?>">
                                                     <i class="fa fa-trash"></i> Excluir usuário</a>
                                                 </div>
                                             </div>
@@ -101,5 +105,4 @@ $msg = '';
             </div>
         </div>
     </div>
-
 <?php endif; ?>

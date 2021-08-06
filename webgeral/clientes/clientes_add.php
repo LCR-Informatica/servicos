@@ -13,7 +13,7 @@ $msg        = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $id_user  = $_POST['txt-user'];
+    $id_user  = $_POST['txt-id'];
     $nome     = $_POST['txt-nome'];
     $email    = $_POST['txt-email'];
     $telefone = $_POST['txt-fone'];
@@ -40,7 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $msg = 'Dados gravados om sucesso.';
 
         // LOG
-        funcoes::CriaLOG($_SESSION['nome_usuario'], ' incluiu o cliente ' . $nome . 'no BD');
+        funcoes::CriaLOG($_SESSION['nome_usuario'], ' incluiu o cliente ' . 
+        $temp[0]['id_cliente'] . ' no BD');
     }
 }
 
@@ -65,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <form action="?a=clientes-add" method="post">
                     <div class="col-md-8 offset-md-1 mt-1 pb-1">
                         <div class='row ml-2 form-group'>
-                            <input type="hidden" name="txt-user" 
+                            <input type="hidden" name="txt-id" 
                             value="<?php echo $_SESSION['id_usuario']?>">
                             <label class="col-sm-3 col-form-label">
                                 <strong>Nome:</strong></label>
@@ -101,7 +102,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </div>
                     <div class="text-center pt-2 pb-1">
                         <button type="submit" class="btn btn-primary btn-size-150">Incluir</button>
-                        <a class="btn btn-secondary btn-size-150 ml-5" href="?a=clientes-list">Voltar</a>
+                        <a class="btn btn-secondary btn-size-150 ml-5" 
+                        href="?a=clientes-list">Voltar</a>
                     </div>
                 </form>
             </div>
