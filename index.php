@@ -5,7 +5,7 @@
 
 session_start();
 if (!isset($_SESSION['a'])) {
-    $_SESSION['a'] = 'inicio';
+    $_SESSION['a'] = 'home';
 }
 
 // funcoes do sistema

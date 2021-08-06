@@ -35,7 +35,7 @@ switch($a){
     break;
     
     // signup
-    case 'cadastro':  // precisa de aprovação manual do admin   
+    case 'cadastro':  // precisa de aprovação manual do admin
         include_once('./webgeral/usuarios/usuario_cadastro.php');  
     break;
 
@@ -49,6 +49,7 @@ switch($a){
         include_once('./webgeral/usuarios/usuario_validar.php');  
     break;
 
+    // recuperação de senhas
     case 'recuperar-senha':        
         include_once('./sp-admin/users/recuperar_senha.php'); 
     break;

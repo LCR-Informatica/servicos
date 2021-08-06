@@ -15,7 +15,7 @@
 </head>
 
 <body>
-<?php include_once('../webgeral/barra_menu.php') // barra de menu ?>
+<?php include_once('../webgeral/barra_login.php') // barra de login ?>
 <div class="container-fluid cabecalho">
     <img class="logo" src="../inc/images/logo.png" alt="logo">
 </div>
