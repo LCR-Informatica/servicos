@@ -1,0 +1,20 @@
+.index-container{
+    background-color: white;
+    color: black;
+    padding: 10px;
+}
+
+.body-container{
+    /* background-image: url("../../images/fundo.jpeg"); */
+    background-color: rgb(32, 32, 32);
+    color: white;
+}
+
+a{
+    color: rgb(0, 63, 180);
+}
+
+a:hover{
+    color: royalblue;
+    text-decoration: none;
+}

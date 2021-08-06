@@ -1,0 +1,9 @@
+.cabecalho-web{
+    background-image: url("../../images/fundo.jpeg");
+    height: 120px;
+}
+
+.logo{
+    margin-top: 10px;
+    margin-left: 20px;
+}
