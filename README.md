@@ -1,2 +1,2 @@
 # Servicos
-## repositorio do projeto servicos
+## Repositorio do projeto servicos (em php puro)
